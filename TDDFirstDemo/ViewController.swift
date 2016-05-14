@@ -25,5 +25,22 @@ class ViewController: UIViewController {
         
         return string.characters.reduce(0) { $0 + (vowels.contains($1) ? 1 : 0) }
     }
+    
+    func makeHeadline(string: String) -> String {
+        // 1
+        let words = string.componentsSeparatedByString(" ")
+        // 2
+        
+        //
+        // var parameters are deprecated and will not be used in Swift 3
+        // how to satisfy the need for a mutable parameter? (jibestream)
+        //
+        
+        let headline = words.map { (var word) -> String in let firstCharacter = word.removeAtIndex(word.startIndex)
+            return "\(String(firstCharacter).uppercaseString)\(word)"
+        }.joinWithSeparator(" ")
+        
+        return headline
+    }
 }
 
